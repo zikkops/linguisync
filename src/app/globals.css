@@ -2,25 +2,175 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b1c30;
+
+  /* Navy scale — the site's primary color, used far more than white/accent */
+  --color-navy-950: #050e19;
+  --color-navy-900: #0b1c30;
+  --color-navy-800: #122a45;
+  --color-navy-700: #1a3a5c;
+  --color-navy-600: #234b73;
+  --color-navy-500: #2f5f8f;
+  --color-navy-400: #5580a8;
+  --color-navy-300: #86a7c4;
+  --color-navy-200: #b9cddc;
+  --color-navy-100: #dbe6ee;
+  --color-navy-50: #f3f7fa;
+
+  /* Amber — a small warm accent, used sparingly (a highlight, not the CTA color) */
+  --color-accent-700: #b45309;
+  --color-accent-600: #d97706;
+  --color-accent-500: #f59e0b;
+  --color-accent-100: #fef3c7;
+  --color-accent-50: #fffbeb;
+
+  /* Muted semantic status colors — functional exception for StatusBadge only */
+  --color-status-neutral: #64748b;
+  --color-status-neutral-bg: #f1f5f9;
+  --color-status-info: #2f5f8f;
+  --color-status-info-bg: #e6eef5;
+  --color-status-progress: #b45309;
+  --color-status-progress-bg: #fef3c7;
+  --color-status-waiting: #6d28d9;
+  --color-status-waiting-bg: #ede9fe;
+  --color-status-success: #15803d;
+  --color-status-success-bg: #dcfce7;
+  --color-status-danger: #b91c1c;
+  --color-status-danger-bg: #fee2e2;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-600: var(--color-navy-600);
+  --color-navy-500: var(--color-navy-500);
+  --color-navy-400: var(--color-navy-400);
+  --color-navy-300: var(--color-navy-300);
+  --color-navy-200: var(--color-navy-200);
+  --color-navy-100: var(--color-navy-100);
+  --color-navy-50: var(--color-navy-50);
+
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-50: var(--color-accent-50);
+
+  --color-status-neutral: var(--color-status-neutral);
+  --color-status-neutral-bg: var(--color-status-neutral-bg);
+  --color-status-info: var(--color-status-info);
+  --color-status-info-bg: var(--color-status-info-bg);
+  --color-status-progress: var(--color-status-progress);
+  --color-status-progress-bg: var(--color-status-progress-bg);
+  --color-status-waiting: var(--color-status-waiting);
+  --color-status-waiting-bg: var(--color-status-waiting-bg);
+  --color-status-success: var(--color-status-success);
+  --color-status-success-bg: var(--color-status-success-bg);
+  --color-status-danger: var(--color-status-danger);
+  --color-status-danger-bg: var(--color-status-danger-bg);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-cormorant);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 999px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display), var(--font-sans), serif;
+  font-style: italic;
+}
+
+::selection {
+  background: var(--color-accent-500);
+  color: var(--color-navy-950);
+}
+
+/* Soft blurred color blobs used for artistic backdrops on navy sections */
+.glow-blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+@keyframes blink-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-caret {
+  animation: blink-caret 1s step-end infinite;
+}
+
+/* Slow drifting background words used behind the hero's glass panels */
+@keyframes float-word {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: var(--word-opacity, 0.14); }
+  88% { opacity: var(--word-opacity, 0.14); }
+  100% { transform: translate(var(--word-dx, 0px), -140px); opacity: 0; }
+}
+.float-word {
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  animation-name: float-word;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Staged hero entrance — background, then title, then supporting content, in sequence */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 700ms ease-out forwards;
+}
+
+/* Animated underline for text links — grows from the left on hover/focus */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 300ms ease;
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
