@@ -1,17 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { ShieldCheck } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { ShieldCheck, LogOut } from "lucide-react";
 import { ADMIN_NAV } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/shared/Avatar";
 import { LogoMark } from "@/components/shared/LogoMark";
-import { getUserById } from "@/lib/mock-data";
+import { createClient } from "@/lib/supabase/client";
 
 export function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const admin = getUserById("u_admin_1");
+  const router = useRouter();
+  const [email, setEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
+  }, []);
+
+  async function handleSignOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/admin/login");
+    router.refresh();
+  }
 
   // Admin login is a bare auth surface, not wrapped in the sidebar chrome.
   if (pathname === "/admin/login") {
@@ -44,12 +58,18 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="m-3 rounded-2xl bg-white/5 px-4 py-4">
           <div className="flex items-center gap-2.5">
-            <Avatar initial={admin?.avatarInitial ?? "A"} size="sm" tone="accent" />
-            <div>
-              <p className="text-sm font-semibold text-white">{admin?.firstName}</p>
+            <Avatar initial={(email?.[0] ?? "A").toUpperCase()} size="sm" tone="accent" />
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold text-white">{email ?? "Loading…"}</p>
               <p className="text-xs text-navy-400">Platform Admin</p>
             </div>
           </div>
+          <button
+            onClick={handleSignOut}
+            className="mt-3 flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-navy-300 transition-colors hover:bg-white/5 hover:text-white"
+          >
+            <LogOut className="h-4 w-4" /> Sign out
+          </button>
         </div>
       </aside>
 
@@ -58,6 +78,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <div className="font-display text-lg font-semibold text-navy-950">
             <LogoMark syncClassName="text-accent-600" /> Admin
           </div>
+          <button onClick={handleSignOut} className="text-sm font-medium text-navy-500">
+            Sign out
+          </button>
         </header>
         <main className="flex-1 px-6 py-8">{children}</main>
       </div>
