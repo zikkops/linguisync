@@ -10,7 +10,6 @@ const LINKS = [
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/become-a-worker", label: "Become a Worker" },
-  { href: "/pricing", label: "Pricing" },
 ];
 
 export function PublicNavbar() {

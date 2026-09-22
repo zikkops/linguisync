@@ -1,11 +1,11 @@
-import { ShieldCheck, Lock, BadgeCheck, Zap } from "lucide-react";
+import { Lock, BadgeCheck, Languages, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/shared/Reveal";
 
 const ITEMS = [
-  { icon: Lock, label: "Escrow-protected payments" },
-  { icon: ShieldCheck, label: "Files locked until you pay" },
-  { icon: BadgeCheck, label: "Rated, reviewed workers" },
-  { icon: Zap, label: "Fast turnaround" },
+  { icon: Lock, label: "Strict Data Confidentiality" },
+  { icon: BadgeCheck, label: "Certified Professional Translators" },
+  { icon: Languages, label: "Native-Speaking Experts" },
+  { icon: ShieldCheck, label: "Guaranteed Accuracy" },
 ];
 
 export function TrustStrip() {

@@ -15,7 +15,6 @@ export const services: Service[] = [
       "Confidential handling of sensitive documents",
     ],
     icon: "Languages",
-    startingPrice: "From $0.08 / word",
     typicalTurnaround: "24–72 hours",
     intakeFormSchema: [
       { name: "sourceLanguage", label: "Source language", type: "select", options: ["English", "Spanish", "French", "German", "Italian", "Japanese", "Hindi"] },
@@ -38,7 +37,6 @@ export const services: Service[] = [
       "Optional style-guide alignment",
     ],
     icon: "PenLine",
-    startingPrice: "From $0.03 / word",
     typicalTurnaround: "12–48 hours",
     intakeFormSchema: [
       { name: "wordCount", label: "Approximate word count", type: "number" },
@@ -60,7 +58,6 @@ export const services: Service[] = [
       "One round of timing/wording revisions",
     ],
     icon: "Captions",
-    startingPrice: "From $1.20 / minute",
     typicalTurnaround: "24–72 hours",
     intakeFormSchema: [
       { name: "videoLength", label: "Video length (minutes)", type: "number" },
@@ -82,7 +79,6 @@ export const services: Service[] = [
       "Delivery in your target format/aspect ratio",
     ],
     icon: "Film",
-    startingPrice: "From $45 / finished minute",
     typicalTurnaround: "48–96 hours",
     intakeFormSchema: [
       { name: "footageLength", label: "Raw footage length (minutes)", type: "number" },
@@ -104,7 +100,6 @@ export const services: Service[] = [
       "Delivered in your preferred format",
     ],
     icon: "PenTool",
-    startingPrice: "From $0.20 / word",
     typicalTurnaround: "24–72 hours",
     intakeFormSchema: [
       { name: "wordCount", label: "Approximate word count", type: "number" },

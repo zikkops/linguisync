@@ -61,7 +61,6 @@ export interface Service {
   description: string;
   whatsIncluded: string[];
   icon: string;
-  startingPrice: string;
   typicalTurnaround: string;
   intakeFormSchema: IntakeField[];
 }
@@ -233,4 +232,11 @@ export interface Dispute {
   resolvedByAdminId?: string;
   createdAt: string;
   resolvedAt?: string;
+}
+
+export interface Vacancy {
+  id: string;
+  title: string;
+  description: string;
+  postedAt: string;
 }

@@ -11,7 +11,7 @@ export default function ComingSoonPage() {
 
       <div className="relative">
         <p className="animate-fade-in-up text-sm font-medium tracking-wide text-navy-300" style={{ animationDelay: "3800ms" }}>
-          Translation · Proofreading · Subtitling · Video · Copy
+          Translation · Proofreading · Subtitling · Video Editing · Copywriting
         </p>
 
         <div className="mt-5">

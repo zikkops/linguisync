@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
         <Reveal>
           <p className="text-sm font-medium text-navy-500">Contact</p>
-          <h1 className="mt-3 font-display text-4xl font-semibold text-navy-950">Have a question before signing up?</h1>
+          <h1 className="mt-3 font-display text-4xl font-semibold text-navy-950">Tell us how we can help you</h1>
           <p className="mt-4 text-navy-500">
             Send us a note and we&apos;ll get back to you — no account needed. Already have an account and a job in
             progress? Use Support inside your dashboard instead for faster routing.
@@ -41,9 +41,10 @@ export default function ContactPage() {
             >
               <Input id="name" label="Name" placeholder="Jane Doe" required />
               <Input id="email" label="Email" type="email" placeholder="jane@example.com" required />
-              <Select id="interest" label="I'm interested in...">
-                <option>As a consumer</option>
-                <option>As a worker</option>
+              <Select id="interest" label="I want to...">
+                <option>Ask a question</option>
+                <option>Report a problem</option>
+                <option>Get a quotation</option>
                 <option>Other</option>
               </Select>
               <Textarea id="message" label="Message" placeholder="How can we help?" required />

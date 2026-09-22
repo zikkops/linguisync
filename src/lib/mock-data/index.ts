@@ -10,6 +10,7 @@ export * from "./notifications";
 export * from "./reviews";
 export * from "./support";
 export * from "./disputes";
+export * from "./vacancies";
 
 import { workerProfiles } from "./users";
 import { jobs } from "./jobs";

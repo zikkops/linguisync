@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { CheckCircle2, Clock, DollarSign } from "lucide-react";
+import { CheckCircle2, Clock } from "lucide-react";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ButtonLink } from "@/components/shared/Button";
 import { IntakeFormPreview } from "@/components/marketing/IntakeFormPreview";
@@ -73,10 +73,6 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
           <aside className="h-fit rounded-2xl border border-navy-100 p-6 shadow-sm shadow-navy-900/5 md:sticky md:top-24">
             <div className="flex items-center gap-2.5 text-sm text-navy-700">
-              <DollarSign className="h-4 w-4 text-navy-500" />
-              <span className="font-semibold">{service.startingPrice}</span>
-            </div>
-            <div className="mt-3 flex items-center gap-2.5 text-sm text-navy-700">
               <Clock className="h-4 w-4 text-navy-500" />
               <span className="font-semibold">{service.typicalTurnaround}</span>
             </div>

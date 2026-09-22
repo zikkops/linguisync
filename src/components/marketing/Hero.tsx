@@ -14,7 +14,7 @@ export function Hero() {
             className="animate-fade-in-up text-sm font-medium tracking-wide text-navy-300"
             style={{ animationDelay: "3800ms" }}
           >
-            Translation · Proofreading · Subtitling · Video · Copy
+            Translation · Proofreading · Subtitling · Video Editing · Copywriting
           </p>
 
           <div className="mt-5">
@@ -25,8 +25,8 @@ export function Hero() {
             className="animate-fade-in-up mt-6 max-w-lg text-base leading-relaxed text-navy-300 md:text-lg"
             style={{ animationDelay: "3950ms" }}
           >
-            Post a job, get matched with a vetted specialist, and pay in two steps — deposit to start,
-            final payment to unlock your finished work. No surprises.
+            Words have the power to cross borders, build trust, and inspire action. We honor your message while
+            speaking directly to the hearts of international audiences.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function Hero() {
             </Link>
 
             <Link
-              href="/become-a-worker"
+              href="/careers"
               className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10">
@@ -59,7 +59,7 @@ export function Hero() {
               </span>
               <span className="flex-1">
                 <span className="block font-display italic font-semibold text-white">Looking for work</span>
-                <span className="block text-sm text-navy-300">Browse open jobs and start earning</span>
+                <span className="block text-sm text-navy-300">See current openings and apply</span>
               </span>
               <ArrowRight className="h-4 w-4 shrink-0 text-navy-400 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
             </Link>

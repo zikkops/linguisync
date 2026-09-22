@@ -26,11 +26,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
         </ul>
       )}
 
-      <div className="mt-5 flex items-center justify-between border-t border-navy-100 pt-4 text-xs font-semibold text-navy-400">
-        <span>{service.startingPrice}</span>
-      </div>
-
-      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-700 transition-colors group-hover:text-accent-600">
+      <span className="mt-5 flex items-center border-t border-navy-100 pt-4 gap-1.5 text-sm font-semibold text-navy-700 transition-colors group-hover:text-accent-600">
         Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </span>
     </Link>

@@ -22,7 +22,7 @@ export default function AdminContentPage() {
             <div key={s.slug} className="flex items-center justify-between rounded-xl bg-navy-50/50 px-4 py-2.5">
               <div>
                 <p className="text-sm font-medium text-navy-900">{s.name}</p>
-                <p className="text-xs text-navy-400">{s.startingPrice} · {s.typicalTurnaround}</p>
+                <p className="text-xs text-navy-400">{s.typicalTurnaround}</p>
               </div>
               <Button size="sm" variant="outline">Edit</Button>
             </div>

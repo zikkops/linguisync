@@ -25,7 +25,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="What we offer"
               title="Five services, one trusted platform"
-              subtitle="Every job is handled by a real specialist and protected by our two-step payment system."
+              subtitle="Turn every word into a seamless bridge between your brand and the world."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

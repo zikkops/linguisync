@@ -28,8 +28,18 @@ export const reviews: Review[] = [
     workerId: "u_wk_4",
     rating: 5,
     comment: "Lucas turned a rough 45-minute interview into a genuinely festival-ready cut. Pacing was perfect.",
-    isFeaturedOnHome: true,
+    isFeaturedOnHome: false,
     createdAt: "2026-07-19T09:30:00Z",
+  },
+  {
+    id: "rev_007",
+    jobId: "job_007",
+    consumerId: "u_con_2",
+    workerId: "u_wk_1",
+    rating: 5,
+    comment: "The translation read as if it had been written in English from the start — every clause accurate, nothing lost in meaning.",
+    isFeaturedOnHome: true,
+    createdAt: "2026-08-06T10:00:00Z",
   },
 ];
 
